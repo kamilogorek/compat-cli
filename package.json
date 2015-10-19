@@ -1,0 +1,10 @@
+{
+  "name": "compat-cli",
+  "version": "0.1.0",
+  "description": "ECMAScript 5/6/7 compatibility tables CLI",
+  "license": "MIT",
+  "repository": "kamilogorek/compat-cli",
+  "author": "Kamil Ogórek <kamil.ogorek@gmail.com>",
+  "preferGlobal": true,
+  "bin": "cli.js"
+}
