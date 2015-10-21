@@ -4,7 +4,24 @@
   "description": "ECMAScript 5/6/7 compatibility tables CLI",
   "license": "MIT",
   "repository": "kamilogorek/compat-cli",
-  "author": "Kamil Ogórek <kamil.ogorek@gmail.com>",
+  "author": {
+    "name": "Kamil Ogórek",
+    "email": "kamil.ogorek@gmail.com",
+    "url": "http://kamilogorek.pl"
+  },
   "preferGlobal": true,
-  "bin": "cli.js"
+  "bin": "./bin/compat-cli",
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "lodash": "^3.10.1",
+    "yargs": "^3.27.0"
+  },
+  "devDependencies": {
+    "object.assign": "^4.0.1",
+    "tap-spec": "^4.1.0",
+    "tape": "^4.2.2"
+  },
+  "scripts": {
+    "test": "tape test/*.js | tap-spec"
+  }
 }
