@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+
+'use strict';
+
 const DEFAULT_SPEC = 'es6';
 const argv = require('yargs')
     .usage('Usage: $0 <name> [options]')
