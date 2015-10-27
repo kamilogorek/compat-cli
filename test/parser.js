@@ -34,17 +34,17 @@ test('Basic methods', (t) => {
 test('Browsers methods', (t) => {
     let parser = new Parser(data);
     t.plan(4);
-    t.equal(Object.keys(parser.getBrowsers()).length, 8, 'Return all browsers');
-    t.equal(Object.keys(parser.getCurrentBrowsers()).length, 4, 'Return all modern browsers (!unstable and !obsolete)');
-    t.equal(Object.keys(parser.getUnstableBrowsers()).length, 2, 'Return all unstable browsers');
-    t.equal(Object.keys(parser.getObsoleteBrowsers()).length, 2, 'Return all obsolete browsers');
+    t.equal(Object.keys(parser.getBrowsers()).length, 80, 'Return all browsers');
+    t.equal(Object.keys(parser.getCurrentBrowsers()).length, 25, 'Return all modern browsers (!unstable and !obsolete)');
+    t.equal(Object.keys(parser.getUnstableBrowsers()).length, 6, 'Return all unstable browsers');
+    t.equal(Object.keys(parser.getObsoleteBrowsers()).length, 49, 'Return all obsolete browsers');
 });
 
 test('Tests methods', (t) => {
     let parser = new Parser(data);
     t.plan(2);
-    t.equal(parser.getTests()[0].name, 'const', 'Return all tests');
-    t.equal(parser.getTestsCount(), 2, 'Return tests count');
+    t.equal(parser.getTests()[0].name, 'proper tail calls (tail call optimisation)', 'Return all tests');
+    t.equal(parser.getTestsCount(), 60, 'Return tests count');
 });
 
 test('Test methods', (t) => {
