@@ -13,6 +13,7 @@
   "bin": "./bin/compat-cli",
   "dependencies": {
     "chalk": "^1.1.1",
+    "cli-table": "^0.3.1",
     "fuse.js": "^1.2.2",
     "lodash": "^3.10.1",
     "yargs": "^3.27.0"

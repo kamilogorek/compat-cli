@@ -25,6 +25,7 @@ $ compat-cli --help
 
 - [ ] Params for ES5/6/7 lookups
 - [ ] Params for detailed tests
+- [ ] Params for sorting
 - [ ] Data update prompt after X days
 - [ ] Data fetching from compat-table repository using rawgithub
 - [ ] Parse data on retrieval to more friendly format?

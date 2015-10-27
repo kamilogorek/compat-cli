@@ -43,8 +43,8 @@ test('Browsers methods', (t) => {
 test('Tests methods', (t) => {
     let parser = new Parser(data);
     t.plan(2);
-    t.equal(parser.getTests()[0].name, 'proper tail calls (tail call optimisation)', 'Return all tests');
-    t.equal(parser.getTestsCount(), 60, 'Return tests count');
+    t.equal(parser.getTests().length, 60, 'Return all tests');
+    t.equal(parser.getTests()[0].name, 'proper tail calls (tail call optimisation)', 'Return correct tests');
 });
 
 test('Test methods', (t) => {
@@ -57,9 +57,9 @@ test('Test methods', (t) => {
 test('Subtests methods', (t) => {
     let parser = new Parser(data);
     t.plan(3);
-    t.equal(parser.getSubtests('const')[0].name, 'basic support', 'Return subtests for a test with given name');
+    t.equal(parser.getSubtests('const').length, 8, 'Return all subtests for a test with given name');
+    t.equal(parser.getSubtests('const')[0].name, 'basic support', 'Return correct subtests for a test with given name');
     t.ok(Array.isArray(parser.getSubtests()), 'Return empty array if no subtests found');
-    t.equal(parser.getSubtestsCount('const'), 8, 'Return subtests count for a test with given name');
 });
 
 test('Find test', (t) => {
