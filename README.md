@@ -3,7 +3,14 @@
 ## Install
 
 ```
-$ npm install --global compat-cli
+// $ npm install --global compat-cli
+
+// Dev mode only for now
+$ git clone https://github.com/kamilogorek/compat-cli.git
+$ cd compat-cli
+$ npm install
+$ npm install -g babel
+$ babel-node bin/compat-cli.js <name> [options]
 ```
 
 ## Usage

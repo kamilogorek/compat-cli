@@ -1,10 +1,26 @@
 'use strict';
 
+const _ = require('lodash');
 const test = require('tape');
 const Parser = require('../lib/parser');
 const data = require('./data');
 
 let parser;
+
+test('Strip HTML tags from browsers data', (t) => {
+    t.plan(7);
+    t.equal(Parser.stripHtmlTags('Hello<br>World!'), 'Hello World!', 'Single tag');
+    t.equal(Parser.stripHtmlTags('Hello<br>World!<br>'), 'Hello World!', 'Multiple tags');
+    t.equal(Parser.stripHtmlTags('Hello +<br><nobr>World!</nobr>'), 'Hello + World!', 'Multiple tags including closing ones');
+    t.equal(Parser.stripHtmlTags('Hello-<br>World!'), 'Hello-World!', 'Tags near hyphens left');
+    t.equal(Parser.stripHtmlTags('Hello<br>-World!'), 'Hello-World!', 'Tags near hyphens right');
+    t.equal(Parser.stripHtmlTags('Hello&nbsp;World!'), 'Hello World!', 'HTML whitespaces');
+    t.equal(
+        Parser.stripHtmlTags('  <nobr>This</nobr><br> is&nbsppretty<br>-complex-<br>string to work&nbsp;with! '),
+        'This is pretty-complex-string to work with!',
+        'Everything combined'
+    );
+});
 
 test('Create parser', (t) => {
     let parser = new Parser(data);
@@ -14,15 +30,18 @@ test('Create parser', (t) => {
 
 test('Feed parser with correct data', (t) => {
     let parser = new Parser(data);
-    t.plan(3);
-    t.equal(parser.spec, data.name, 'Attach spec name to an instance');
-    t.equal(parser.browsers, data.browsers, 'Attach spec browsers to an instance');
-    t.equal(parser.tests, data.tests, 'Attach spec tests to an instance');
+    t.plan(6);
+    t.ok(_.isString(parser.spec), 'Attach spec name to an instance');
+    t.equal(parser.spec, 'ES6', 'Attach valid spec name to an instance');
+    t.ok(_.isObject(parser.browsers), 'Attach browsers to an instance');
+    t.equal(Object.keys(parser.browsers).length, 80, 'Attach all browsers to an instance');
+    t.ok(_.isObject(parser.tests), 'Attach tests to an instance');
+    t.equal(Object.keys(parser.tests).length, 60, 'Attach all tests to an instance');
 });
 
 test('Feed parser with incorrect data', (t) => {
     t.plan(1);
-    t.throws(new Parser({ random: 'data' }), 'Throw an error');
+    t.throws(() => new Parser({ random: 'data' }), 'Throw an error');
 });
 
 test('Basic methods', (t) => {
