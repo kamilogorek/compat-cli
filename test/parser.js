@@ -9,14 +9,14 @@ let parser;
 
 test('Strip HTML tags from browsers data', (t) => {
     t.plan(7);
-    t.equal(Parser.stripHtmlTags('Hello<br>World!'), 'Hello World!', 'Single tag');
-    t.equal(Parser.stripHtmlTags('Hello<br>World!<br>'), 'Hello World!', 'Multiple tags');
-    t.equal(Parser.stripHtmlTags('Hello +<br><nobr>World!</nobr>'), 'Hello + World!', 'Multiple tags including closing ones');
-    t.equal(Parser.stripHtmlTags('Hello-<br>World!'), 'Hello-World!', 'Tags near hyphens left');
-    t.equal(Parser.stripHtmlTags('Hello<br>-World!'), 'Hello-World!', 'Tags near hyphens right');
-    t.equal(Parser.stripHtmlTags('Hello&nbsp;World!'), 'Hello World!', 'HTML whitespaces');
+    t.equal(Parser._stripHtmlTags('Hello<br>World!'), 'Hello World!', 'Single tag');
+    t.equal(Parser._stripHtmlTags('Hello<br>World!<br>'), 'Hello World!', 'Multiple tags');
+    t.equal(Parser._stripHtmlTags('Hello +<br><nobr>World!</nobr>'), 'Hello + World!', 'Multiple tags including closing ones');
+    t.equal(Parser._stripHtmlTags('Hello-<br>World!'), 'Hello-World!', 'Tags near hyphens left');
+    t.equal(Parser._stripHtmlTags('Hello<br>-World!'), 'Hello-World!', 'Tags near hyphens right');
+    t.equal(Parser._stripHtmlTags('Hello&nbsp;World!'), 'Hello World!', 'HTML whitespaces');
     t.equal(
-        Parser.stripHtmlTags('  <nobr>This</nobr><br> is&nbsppretty<br>-complex-<br>string to work&nbsp;with! '),
+        Parser._stripHtmlTags('  <nobr>This</nobr><br> is&nbsppretty<br>-complex-<br>string to work&nbsp;with! '),
         'This is pretty-complex-string to work with!',
         'Everything combined'
     );
