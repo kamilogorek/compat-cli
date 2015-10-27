@@ -9,7 +9,7 @@ let parser;
 test('Create parser', (t) => {
     let parser = new Parser(data);
     t.plan(1);
-    t.equal(parser instanceof Parser, true, 'Created succesfully');
+    t.ok(parser instanceof Parser, 'Created succesfully');
 });
 
 test('Feed parser with correct data', (t) => {
@@ -58,6 +58,27 @@ test('Subtests methods', (t) => {
     let parser = new Parser(data);
     t.plan(3);
     t.equal(parser.getSubtests('const')[0].name, 'basic support', 'Return subtests for a test with given name');
-    t.equal(Array.isArray(parser.getSubtests()), true, 'Return empty array if no subtests found');
+    t.ok(Array.isArray(parser.getSubtests()), 'Return empty array if no subtests found');
     t.equal(parser.getSubtestsCount('const'), 8, 'Return subtests count for a test with given name');
+});
+
+test('Find test', (t) => {
+    let parser = new Parser(data);
+    let tests = parser.findTests('subclass');
+    let expectedTests = [
+        'Array is subclassable',
+        'RegExp is subclassable',
+        'Promise is subclassable',
+        'Function is subclassable',
+        'miscellaneous subclassables'
+    ];
+    t.plan(2);
+    t.equal(tests.length, 5, 'Find tests using fuzzy search');
+
+    let found = 0;
+    tests.forEach((test) => {
+        if (expectedTests.indexOf(test) !== -1) found += 1;
+    });
+
+    t.equal(found, 5, 'Contain all expected tests');
 });
