@@ -7,8 +7,15 @@ const argv = require('yargs')
     .demand(1)
     .options({
         'subtests': {
-            alias: 's',
-            describe: 'Print additional subtests report',
+            describe: 'Include subtests in the report',
+            type: 'boolean'
+        },
+        'unstable': {
+            describe: 'Include unstable browsers',
+            type: 'boolean'
+        },
+        'obsolete': {
+            describe: 'Include obsolete browsers',
             type: 'boolean'
         },
         'spec': {

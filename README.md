@@ -22,13 +22,14 @@ $ compat-cli --help
     $ compat-cli <name> [options]
 
   Options
-    --subtests, -s  Print additional subtests report                     [boolean]
-    --spec          ECMSScript specification version
+    --subtests    Include subtests in the report                         [boolean]
+    --unstable    Include unstable browsers                              [boolean]
+    --obsolete    Include obsolete browsers                              [boolean]
+    --spec        ECMSScript specification version
          [choices: "es5", "es6", "es7", "esintl", "non-standard"] [default: "es6"]
-    --sort-key      Sorting key
-                                [choices: "browser", "score"] [default: "browser"]
-    --sort-order    Sorting order                         [choices: "asc", "desc"]
-    -h, --help      Show help                                            [boolean]
+    --sort-key    Sorting key   [choices: "browser", "score"] [default: "browser"]
+    --sort-order  Sorting order                           [choices: "asc", "desc"]
+    -h, --help    Show help                                              [boolean]
 
   Examples
     // Display `rest` compatibility based on ES6 spec
