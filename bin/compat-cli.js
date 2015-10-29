@@ -7,11 +7,19 @@ const argv = require('yargs')
     .demand(1)
     .options({
         'spec': {
-            alias: 's',
             default: 'es6',
             describe: 'ECMSScript specification version',
             requiresArg: true,
             choices: ['es5', 'es6', 'es7', 'esintl', 'non-standard']
+        },
+        'sort-key': {
+            default: 'browser',
+            describe: 'Sorting key',
+            choices: ['browser', 'score']
+        },
+        'sort-order': {
+            describe: 'Sorting order',
+            choices: ['asc', 'desc']
         }
     })
     .describe('beast-mode', 'Put additional 45lbs plates per side if doing back squats')
@@ -19,5 +27,9 @@ const argv = require('yargs')
     .help('h')
     .alias('h', 'help')
     .argv;
+
+// Just silly mapping. It will be changed if grows too much.
+argv.sortOrder = argv['sort-order'] || (argv['sort-key'] === 'score' ? 'desc' : 'asc');
+argv.sortKey = argv['sort-key'] === 'score' ? 'result.score' : 'browser.full';
 
 require('../lib/main')(argv);

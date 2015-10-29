@@ -31,8 +31,6 @@ $ compat-cli --help
 ### TODO
 
 - [ ] Params for detailed tests
-- [ ] Params for sorting
 - [ ] Data update prompt after X days
 - [ ] Data fetching from compat-table repository using rawgithub
 - [ ] Parse data on retrieval to more friendly format?
-- [ ] Pass test instead of subtests if there're none
