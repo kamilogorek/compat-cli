@@ -22,15 +22,24 @@ $ compat-cli --help
     $ compat-cli <name> [options]
 
   Options
-    --beast-mode    Put additional 45lbs plates per side if doing back squats
+    --subtests, -s  Print additional subtests report                     [boolean]
+    --spec          ECMSScript specification version
+         [choices: "es5", "es6", "es7", "esintl", "non-standard"] [default: "es6"]
+    --sort-key      Sorting key
+                                [choices: "browser", "score"] [default: "browser"]
+    --sort-order    Sorting order                         [choices: "asc", "desc"]
+    -h, --help      Show help                                            [boolean]
 
   Examples
+    // Display `rest` compatibility based on ES6 spec
     $ compat-cli rest
+
+    // Display `class` compatibility based on ES7 spec, including subtests information and sorted by score
+    $ compat-cli class -s --sort-key=score
 ```
 
 ### TODO
 
-- [ ] Params for detailed tests
 - [ ] Data update prompt after X days
 - [ ] Data fetching from compat-table repository using rawgithub
 - [ ] Parse data on retrieval to more friendly format?

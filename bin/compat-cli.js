@@ -6,6 +6,11 @@ const argv = require('yargs')
     .usage('Usage: $0 <name> [options]')
     .demand(1)
     .options({
+        'subtests': {
+            alias: 's',
+            describe: 'Print additional subtests report',
+            type: 'boolean'
+        },
         'spec': {
             default: 'es6',
             describe: 'ECMSScript specification version',
@@ -15,14 +20,15 @@ const argv = require('yargs')
         'sort-key': {
             default: 'browser',
             describe: 'Sorting key',
+            requiresArg: true,
             choices: ['browser', 'score']
         },
         'sort-order': {
             describe: 'Sorting order',
+            requiresArg: true,
             choices: ['asc', 'desc']
         }
     })
-    .describe('beast-mode', 'Put additional 45lbs plates per side if doing back squats')
     .example('$0 rest', 'Verify \`rest\` API compatibility')
     .help('h')
     .alias('h', 'help')
