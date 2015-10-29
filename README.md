@@ -1,5 +1,7 @@
 > ECMAScript 5/6/7 [compatibility tables](https://github.com/kangax/compat-table) CLI
 
+![](https://github.com/kamilogorek/compat-cli/blob/master/demo.gif)
+
 ## Install
 
 ```
@@ -43,4 +45,6 @@ $ compat-cli --help
 
 - [ ] Data update prompt after X days
 - [ ] Data fetching from compat-table repository using rawgithub
-- [ ] Parse data on retrieval to more friendly format?
+- [ ] Add pre-release build process
+- [ ] Merge results if they’re same, but only in simple view (without subtests)
+- [ ] Allow for raw output (piping and JSON)
