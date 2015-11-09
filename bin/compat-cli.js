@@ -34,9 +34,14 @@ const argv = require('yargs')
             describe: 'Sorting order',
             requiresArg: true,
             choices: ['asc', 'desc']
+        },
+        'update': {
+            describe: 'Fetch fresh data set',
+            type: 'boolean'
         }
     })
     .example('$0 rest', 'Verify \`rest\` API compatibility')
+    .example('$0 class -s --sort-key=score', 'Display \`class\` compatibility based on ES7 spec, including subtests information and sorted by score')
     .help('h')
     .alias('h', 'help')
     .argv;

@@ -20,30 +20,28 @@ $ babel-node bin/compat-cli.js <name> [options]
 ```
 $ compat-cli --help
 
-  Usage
-    $ compat-cli <name> [options]
+Usage: bin/compat-cli.js <name> [options]
 
-  Options
-    --subtests    Include subtests in the report                         [boolean]
-    --unstable    Include unstable browsers                              [boolean]
-    --obsolete    Include obsolete browsers                              [boolean]
-    --spec        ECMSScript specification version
-         [choices: "es5", "es6", "es7", "esintl", "non-standard"] [default: "es6"]
-    --sort-key    Sorting key   [choices: "browser", "score"] [default: "browser"]
-    --sort-order  Sorting order                           [choices: "asc", "desc"]
-    -h, --help    Show help                                              [boolean]
+Options:
+  --subtests    Include subtests in the report                         [boolean]
+  --unstable    Include unstable browsers                              [boolean]
+  --obsolete    Include obsolete browsers                              [boolean]
+  --spec        ECMSScript specification version
+       [choices: "es5", "es6", "es7", "esintl", "non-standard"] [default: "es6"]
+  --sort-key    Sorting key   [choices: "browser", "score"] [default: "browser"]
+  --sort-order  Sorting order                           [choices: "asc", "desc"]
+  --update      Fetch fresh data set                                   [boolean]
+  -h, --help    Show help                                              [boolean]
 
-  Examples
-    // Display `rest` compatibility based on ES6 spec
-    $ compat-cli rest
-
-    // Display `class` compatibility based on ES7 spec, including subtests information and sorted by score
-    $ compat-cli class -s --sort-key=score
+Examples:
+  bin/compat-cli.js rest                    Verify `rest` API compatibility
+  bin/compat-cli.js class -s --sort-key=    Display `class` compatibility based
+  score                                     on ES7 spec, including subtests
+                                            information and sorted by score
 ```
 
 ### TODO
 
-- [ ] Data update prompt after X days
 - [ ] Add pre-release build process
 - [ ] Merge results if they’re same, but only in simple view (without subtests)
 - [ ] Allow for raw output (piping and JSON)
