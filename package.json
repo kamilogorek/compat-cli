@@ -16,9 +16,12 @@
     "cli-table": "^0.3.1",
     "fuse.js": "^1.2.2",
     "lodash": "^3.10.1",
+    "mkdirp": "^0.5.1",
+    "request": "^2.65.0",
     "yargs": "^3.27.0"
   },
   "devDependencies": {
+    "babel-eslint": "^4.1.4",
     "eslint": "^1.7.2",
     "istanbul": "^0.4.0",
     "lodash": "^3.10.1",
@@ -30,12 +33,18 @@
   "scripts": {
     "test": "tape test/*.js | tap-spec",
     "coverage": "rm -rf coverage && istanbul cover -- tape test/*.js --verbose",
-    "lint": "eslint --env node,es6 {bin,lib,test}/**",
+    "lint": "eslint {bin,lib,test}/**",
     "validate": "npm ls"
   },
   "pre-commit": [
     "lint",
     "validate",
     "test"
-  ]
+  ],
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "rules": {
+      "strict": 0
+    }
+  }
 }

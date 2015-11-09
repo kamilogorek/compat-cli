@@ -44,7 +44,6 @@ $ compat-cli --help
 ### TODO
 
 - [ ] Data update prompt after X days
-- [ ] Data fetching from compat-table repository using rawgithub
 - [ ] Add pre-release build process
 - [ ] Merge results if they’re same, but only in simple view (without subtests)
 - [ ] Allow for raw output (piping and JSON)
