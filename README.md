@@ -4,10 +4,10 @@
 
 ## Install
 
-```
-// $ npm install --global compat-cli
+```shell
+# $ npm install --global compat-cli
 
-// Dev mode only for now
+# Dev mode only for now
 $ git clone https://github.com/kamilogorek/compat-cli.git
 $ cd compat-cli
 $ npm install
