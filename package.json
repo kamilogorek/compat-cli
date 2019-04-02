@@ -12,27 +12,26 @@
   "preferGlobal": true,
   "bin": "./bin/compat-cli",
   "dependencies": {
-    "chalk": "^1.1.1",
+    "chalk": "^2.4.2",
     "cli-table": "^0.3.1",
-    "fuse.js": "^1.2.2",
-    "lodash": "^3.10.1",
+    "fuse.js": "^3.4.4",
+    "lodash": "^4.17.1",
     "mkdirp": "^0.5.1",
-    "request": "^2.65.0",
-    "yargs": "^3.27.0"
+    "request": "^2.88.0",
+    "yargs": "^13.2.2"
   },
   "devDependencies": {
-    "babel-eslint": "^4.1.4",
-    "eslint": "^1.7.2",
-    "istanbul": "^0.4.0",
-    "lodash": "^3.10.1",
-    "object.assign": "^4.0.1",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.3",
+    "nyc": "^13.3.0",
+    "object.assign": "^4.1.0",
     "precommit-hook": "^3.0.0",
-    "tap-spec": "^4.1.0",
-    "tape": "^4.2.2"
+    "tap-spec": "^5.0.0",
+    "tape": "^4.10.1"
   },
   "scripts": {
     "test": "tape test/*.js | tap-spec",
-    "coverage": "rm -rf coverage && istanbul cover -- tape test/*.js --verbose",
+    "coverage": "rm -rf .nyc_output && nyc -- tape test/*.js --verbose",
     "lint": "eslint {bin,lib,test}/**",
     "validate": "npm ls"
   },
